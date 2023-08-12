@@ -4,7 +4,7 @@
     "packages/*",
     "docusaurus/website"
   ],
-  "version": "1.0.0"
+  "version": "1.0.0",
   "scripts": {
     "build": "cd packages/react-scripts && node bin/react-scripts.js build",
     "changelog": "lerna-changelog",
