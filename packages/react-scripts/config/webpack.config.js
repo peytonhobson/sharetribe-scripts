@@ -155,18 +155,21 @@ module.exports = function(webpackEnv, target = 'web') {
             plugins: !useTailwind
               ? sharetribeConfigUtils.postcssOptionsPlugins
               : [
-                  'tailwindcss',
-                  'postcss-flexbugs-fixes',
-                  [
-                    'postcss-preset-env',
-                    {
-                      autoprefixer: {
-                        flexbox: 'no-2009',
-                      },
-                      stage: 3,
+                // 'postcss-import',
+                ['tailwindcss/nesting', 'postcss-nesting'],
+                'tailwindcss',
+                'postcss-flexbugs-fixes',
+                [
+                  'postcss-preset-env',
+                  {
+                    autoprefixer: {
+                      flexbox: 'no-2009',
                     },
-                  ],
+                    // features: { 'nesting-rules': false },
+                    stage: 3,
+                  },
                 ],
+              ],
           },
           sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
         },
